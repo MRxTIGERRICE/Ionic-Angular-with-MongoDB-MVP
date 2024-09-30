@@ -1,0 +1,54 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>profile</ion-title>
+    <ion-buttons slot="end" (click)="onLogout()">
+      <ion-button>
+        <ion-icon name="power"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">profile</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <ion-card style="width: 30%; margin: 0 auto; top: 30%;">
+    <ion-card-header style="text-align: center;">
+      <ion-card-title>{{ user?.fullName }}</ion-card-title>
+      <ion-card-subtitle>{{ user?.email }}</ion-card-subtitle>
+    </ion-card-header>
+  
+    <ion-card-content>
+      <p><strong>Phone Number:</strong>{{user?.phoneNumber }}</p>
+      <p><strong>City:</strong> {{user?.city }}</p>
+      <p><strong>Pincode:</strong> {{user?.pincode }}</p>
+      <p><strong>State:</strong> {{user?.state }}</p>
+      <p><strong>Total Donations:</strong> {{ totalDonations }}</p>
+      <p><strong>Total Items Donated:</strong> {{ totalItemsDonated }}</p>
+      <p><strong>Total Money Donated:</strong> ${{ totalMoneyDonated }}</p>
+      <p><strong>Thank you for saving the environment!</strong></p>
+    </ion-card-content>
+  </ion-card>
+</ion-content>
+<ion-footer>
+  <ion-toolbar>
+    <ion-tabs>
+      <ion-tab-bar>
+        <ion-tab-button (click)="navigateTo('main')">
+          <ion-icon name="home"></ion-icon>
+          home
+        </ion-tab-button>
+        <ion-tab-button (click)="navigateTo('youritems')">
+          <ion-icon name="star"></ion-icon>
+          My Items
+        </ion-tab-button>
+        <ion-tab-button (click)="navigateTo('profile')">
+          <ion-icon name="person"></ion-icon>
+          profile
+        </ion-tab-button>
+      </ion-tab-bar>
+    </ion-tabs>
+  </ion-toolbar>
+</ion-footer>

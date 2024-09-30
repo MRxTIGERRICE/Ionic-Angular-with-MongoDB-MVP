@@ -1,7 +1,7 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>
-      Blank
+      MVP
     </ion-title>
   </ion-toolbar>
 </ion-header>
@@ -9,12 +9,40 @@
 <ion-content [fullscreen]="true">
   <ion-header collapse="condense">
     <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
+      <ion-title size="large">Login</ion-title>
     </ion-toolbar>
   </ion-header>
-
   <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
+    <strong style="margin: 10px;">Login</strong>
+  <ion-input
+    type="email"
+    fill="solid"
+    label="Email"
+    labelPlacement="floating"
+    helperText="Enter a valid email"
+    errorText="Invalid email"
+    [(ngModel)]="user.email"
+    email>
+  </ion-input>
+  <ion-input
+    type="password"
+    fill="solid"
+    label="Password"
+    labelPlacement="floating"
+    helperText="Enter Password"
+    errorText="invalid password"
+    [(ngModel)]="user.password"
+    email>
+  </ion-input>
+  <div style="display: flex; justify-content: space-between;gap: 210px;">
+    <ion-button shape="round" (click)="onLogin()">
+      Login
+    </ion-button>
+    <ion-button shape="round" (click)="goTosignup()" color="secondary">
+      Register
+    </ion-button>
+  </div>
+    <!-- <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p> -->
   </div>
 </ion-content>
+

@@ -1,0 +1,111 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      Sign-up
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">Sign-up</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <div id="container">
+    <ion-input
+    type="text"
+    fill="solid"
+    label="Full Name"
+    labelPlacement="floating"
+    helperText="Enter your full name"
+    errorText="Name is required"
+    [(ngModel)]="user.fullName"
+    required>
+    </ion-input>
+
+    <ion-input
+        type="email"
+        fill="solid"
+        label="Email"
+        labelPlacement="floating"
+        helperText="Enter a valid email"
+        errorText="Invalid email"
+        [(ngModel)]="user.email"
+        required>
+    </ion-input>
+
+    <ion-input
+        type="password"
+        fill="solid"
+        label="Password"
+        labelPlacement="floating"
+        helperText="Create a password"
+        errorText="Invalid password"
+        [(ngModel)]="user.password"
+        required>
+    </ion-input>
+
+    <ion-input
+        type="password"
+        fill="solid"
+        label="Confirm Password"
+        labelPlacement="floating"
+        helperText="Confirm your password"
+        errorText="Passwords do not match"
+        [(ngModel)]="user.confirmPassword"
+        required>
+    </ion-input>
+
+    <ion-input
+        type="text"
+        fill="solid"
+        label="Phone Number"
+        labelPlacement="floating"
+        helperText="Enter your phone number"
+        errorText="Invalid phone number"
+        [(ngModel)]="user.phoneNumber">
+    </ion-input>
+
+    <ion-row style="margin-right: 20px;">
+        <ion-col size="4">
+            <ion-input
+                fill="solid"
+                label="City"
+                labelPlacement="floating"
+                helperText="Enter your city"
+                errorText="City is required"
+                [(ngModel)]="user.city">
+            </ion-input>
+        </ion-col>
+
+        <ion-col size="4">
+            <ion-input
+                fill="solid"
+                label="State"
+                labelPlacement="floating"
+                helperText="Enter your state"
+                errorText="State is required"
+                [(ngModel)]="user.state">
+            </ion-input>
+        </ion-col>
+
+        <ion-col size="4">
+            <ion-input
+                fill="solid"
+                label="Pincode"
+                labelPlacement="floating"
+                helperText="Enter your pincode"
+                errorText="Pincode is required"
+                [(ngModel)]="user.pincode">
+            </ion-input>
+        </ion-col>
+    </ion-row>
+  <div style="display: flex; justify-content: space-between;gap: 210px;">
+    <ion-button shape="round" (click)="onRegister()" color="secondary">
+      Register
+    </ion-button>
+  </div>
+  </div>
+</ion-content>
+
