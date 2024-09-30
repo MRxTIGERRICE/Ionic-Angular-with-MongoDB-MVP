@@ -45,7 +45,7 @@ To install and run this project, follow these steps:
    ```
 
 ## Demo Video
-Check out the demo video of the application here: [Demo Video](https://www.youtube.com/watch?v=your_video_id)
+Check out the demo video of the application here: [Demo Video](https://www.youtube.com/watch?v=GK8CrB65TUk)
 
 ## Contributing
 Contributions are welcome! Please feel free to open issues and submit pull requests.
