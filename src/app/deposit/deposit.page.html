@@ -1,0 +1,101 @@
+<ion-content [fullscreen]="true">
+  <ion-content color="light" style="text-align: center;">
+    <ion-list-header color="success" style="text-align: center;">
+      <ion-label><h1 color="dark">Deposition Form</h1></ion-label>
+    </ion-list-header>
+    <ion-list [inset]="true" style="border-radius: 10px; margin-top: 24px; width: 60%; margin: 30px auto;">
+      <ion-item>
+        <ion-input label="Type of Deposition:" label-placement="floating" placeholder="Choose your type" [value]="selectedValue"></ion-input>
+        <ion-segment [scrollable]="true" value="Recycle" slot="end" (ionChange)="segmentChanged($event)">
+          <ion-segment-button value="Donation" [ngClass]="{'selected-ball': selectedValue === 'basket'}">
+            <ion-icon name="basket" color="primary"></ion-icon>
+          </ion-segment-button>
+          <ion-segment-button value="Recycle" [ngClass]="{'selected-ball': selectedValue === 'recycle'}">
+            <ion-icon src="../../assets/recycle.svg" color="success"></ion-icon>
+          </ion-segment-button>
+          <ion-segment-button value="Dispose" [ngClass]="{'selected-ball': selectedValue === 'dispose'}">
+            <ion-icon name="trash" color="danger"></ion-icon>
+          </ion-segment-button>
+        </ion-segment>
+      </ion-item>
+      <ion-item>
+        <ion-label>Type of Apparel</ion-label>
+        <ion-select 
+          placeholder="Choose types" 
+          [(ngModel)]="selectedTypes" 
+          multiple="true"
+          interface="popover"
+          slot="end"
+          (ionChange)="onTypeChange($event)">
+          <ion-select-option *ngFor="let type of apparelTypes" [value]="type">
+            {{ type }}
+          </ion-select-option>
+        </ion-select>
+      </ion-item>
+      <ion-item *ngIf="selectedTypes.length > 0">
+        <ion-label>Sub-types</ion-label>
+          <ion-select 
+            placeholder="Choose sub-types"
+            [(ngModel)]="selectedSubtypes"
+            slot="end"
+            interface="popover"
+            multiple="true">
+            <ion-select-option *ngFor="let subtype of filteredSubtypes" [value]="subtype">
+              {{ subtype }}
+            </ion-select-option>
+          </ion-select>
+      </ion-item>
+      
+      <ion-list style="border-style: dotted; border-radius: 18px; border-color: white; margin: 35px;" *ngIf="selectedSubtypes.length > 0" >
+        <ion-item *ngFor="let subtype of selectedSubtypes">
+          <ion-label style="width: 60%; padding-right: 40px;">{{ subtype }}</ion-label>
+          <ion-input style="width: 38%;" type="number" label="Quantity:" placeholder="Select quantity" [(ngModel)]="quantities[subtype]"></ion-input>
+          <ion-radio-group [(ngModel)]="conditions[subtype]" slot="end">
+            <ion-radio value="New">New</ion-radio>
+            <ion-radio value="Gently used">Gently used</ion-radio>
+            <ion-radio value="Worn out">Worn out</ion-radio>
+            <ion-radio value="Damaged">Damaged</ion-radio>
+          </ion-radio-group>
+          <ion-row style="margin-right: -180px;">
+            <ion-item style="" >
+              <ion-label position="floating">Comments</ion-label>
+              <ion-textarea placeholder="Add comments here" [(ngModel)]="comments[subtype]" rows="2"></ion-textarea>
+            </ion-item>
+            <ion-item>
+              <ion-label>Upload Photo</ion-label>
+              <input type="file" (change)="onFileSelected($event, subtype)" accept="image/*" />
+            </ion-item>
+          </ion-row>
+        </ion-item>
+      </ion-list>
+      <ion-item>
+        <ion-label>Disposal Type:</ion-label>
+        <ion-segment [(ngModel)]="disposalType">
+          <ion-segment-button value="pickup">
+            <ion-label>Home-Pickup</ion-label>
+          </ion-segment-button>
+          <ion-segment-button value="drop">
+            <ion-label>Drop at Centre</ion-label>
+          </ion-segment-button>
+        </ion-segment>
+      </ion-item>
+    <ion-item>
+        <ion-label>Contribution/Donation</ion-label>
+        <ion-range 
+          min="0" 
+          max="1000" 
+          step="10" 
+          [(ngModel)]="donationAmount" 
+          label-placement="start" 
+          snaps="true"
+          (ionChange)="onRangeChange($event)">
+          <div slot="label">{{ donationAmount | currency }}</div>
+        </ion-range>
+    </ion-item>
+  </ion-list>
+  <ion-button shape="round" id="submit-alert" >
+    Deposit
+  </ion-button>
+  </ion-content>
+</ion-content>
+<ion-alert trigger="submit-alert" class="custom-alert" header="Are you sure you want to submit?" [buttons]="alertButtons"></ion-alert>

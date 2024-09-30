@@ -1,0 +1,84 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>Welmcome, {{ userName }}</ion-title>
+    <ion-buttons slot="end" (click)="onLogout()">  <!-- 'end' aligns the icon to the right -->
+      <ion-button>
+        <ion-icon name="power"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">Welcome, {{ userName }}</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <div id="container">
+  <ion-grid>
+    <ion-row>
+      <ion-col>
+        <ion-card>
+          <img alt="Silhouette of mountains" src="../../assets/dispose.jpg" />
+          <ion-card-header>
+            <ion-card-title>Disposal</ion-card-title>
+            <ion-card-subtitle>Card Subtitle</ion-card-subtitle>
+          </ion-card-header>
+        
+          <ion-card-content>
+            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Asperiores veniam vitae pariatur nam, praesentium tempore, minus qui totam ipsam et accusamus sunt officiis incidunt voluptatum adipisci perferendis quos quam temporibus.
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+      <ion-col>
+        <ion-card>
+          <img alt="Silhouette of mountains" src="../../assets/doantion.jpg" />
+          <ion-card-header>
+            <ion-card-title>Donation</ion-card-title>
+            <ion-card-subtitle>Card Subtitle</ion-card-subtitle>
+          </ion-card-header>
+        
+          <ion-card-content>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere ipsa modi eligendi. Fugit hic quas, atque explicabo accusamus sit. Sapiente exercitationem et ipsum possimus earum beatae a dolore, praesentium id!
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+      <ion-col>
+        <ion-card>
+          <img alt="Silhouette of mountains" src="../../assets/recycle.jpg" />
+          <ion-card-header>
+            <ion-card-title>Recycling</ion-card-title>
+            <ion-card-subtitle>Card Subtitle</ion-card-subtitle>
+          </ion-card-header>
+        
+          <ion-card-content>
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolore ipsum labore tempora doloremque quod quidem officiis odit quasi vero. Quam reiciendis cum voluptas ipsam perferendis accusantium rem nihil vitae accusamus.
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+  <br>
+  <div class="button-container">
+    <ion-button size="large" (click)="goToDeposit()"> Click to Deposit </ion-button>
+  </div>
+  </div>
+  <ion-tabs>
+    <ion-tab-bar slot="bottom">
+      <ion-tab-button (click)="navigateTo('main')">
+        <ion-icon name="home"></ion-icon>
+        home
+      </ion-tab-button>
+      <ion-tab-button (click)="navigateTo('youritems')">
+        <ion-icon name="star"></ion-icon>
+        My Items
+      </ion-tab-button>
+      <ion-tab-button (click)="navigateTo('profile')">
+        <ion-icon name="person"></ion-icon>
+        profile
+      </ion-tab-button>
+    </ion-tab-bar>
+  </ion-tabs>
+</ion-content>
+

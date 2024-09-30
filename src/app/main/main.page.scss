@@ -1,0 +1,10 @@
+ion-button {
+    position: relative;
+    display: block; /* Ensure the button takes up full width */
+    margin: 0 auto; /* This will center the button horizontally */
+    max-width: 600px; /* Cap the width for larger screens */
+    width: 100%; /* Make it responsive by using 100% of the available space */
+    text-align: center;
+    z-index: 1;
+    text-transform: none;
+}

@@ -1,0 +1,72 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>youritems</ion-title>
+    <ion-buttons slot="end" (click)="onLogout()">
+      <ion-button>
+        <ion-icon name="power"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">youritems</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <ion-grid>
+    <ion-row>
+      <ion-col size="12" size-md="3" *ngFor="let deposition of depositions">
+        <ion-card>
+          <img alt="Apparel Image" [src]="actionImageMap[deposition.type]" height="250px"/> 
+          <ion-card-header>
+            <ion-card-title>{{ deposition.type }}</ion-card-title>
+            <ion-card-subtitle>Submitted on: {{ deposition.createdAt | date }}</ion-card-subtitle>
+          </ion-card-header>
+          <ion-card-content>
+            <p><strong>Apparel Types:</strong> {{ deposition.apparelTypes.join(', ') }}</p>
+            <div *ngFor="let subtype of deposition.subtypes">
+              <p>
+                <strong>Donated Item:</strong> 
+                {{ subtype }} - 
+                Quantity: {{ deposition.quantities?.[subtype] || 'N/A' }}, 
+                Comments: {{ deposition.comments?.[subtype] || 'No comments' }}, 
+                Condition: {{ deposition.conditions?.[subtype] || 'N/A' }}
+              </p>
+            </div>
+            <p *ngIf="deposition.donationAmount">
+              <strong>Donation Amount:</strong> ${{ deposition.donationAmount }}
+            </p>
+          </ion-card-content>
+          <!-- <ion-card-content>
+            <p><strong>Apparel Types:</strong> {{ deposition.apparelTypes.join(', ') }}</p>
+            <p><strong>Quantities:</strong> {{ deposition.quantities | json }}</p>
+            <p><strong>Comments:</strong> {{ deposition.comments | json }}</p>
+            <p *ngIf="deposition.donationAmount"><strong>Donation Amount:</strong> ${{ deposition.donationAmount }}</p>
+          </ion-card-content> -->
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>
+<ion-footer>
+  <ion-toolbar>
+    <ion-tabs>
+      <ion-tab-bar>
+        <ion-tab-button (click)="navigateTo('main')">
+          <ion-icon name="home"></ion-icon>
+          home
+        </ion-tab-button>
+        <ion-tab-button (click)="navigateTo('youritems')">
+          <ion-icon name="star"></ion-icon>
+          My Items
+        </ion-tab-button>
+        <ion-tab-button (click)="navigateTo('profile')">
+          <ion-icon name="person"></ion-icon>
+          profile
+        </ion-tab-button>
+      </ion-tab-bar>
+    </ion-tabs>
+  </ion-toolbar>
+</ion-footer>
