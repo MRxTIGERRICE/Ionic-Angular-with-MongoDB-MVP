@@ -50,7 +50,7 @@
         <ion-item *ngFor="let subtype of selectedSubtypes">
           <ion-label style="width: 60%; padding-right: 40px;">{{ subtype }}</ion-label>
           <ion-input style="width: 38%;" type="number" label="Quantity:" placeholder="Select quantity" [(ngModel)]="quantities[subtype]"></ion-input>
-          <ion-radio-group [(ngModel)]="conditions[subtype]" slot="end">
+          <ion-radio-group style="width: 18%;" [(ngModel)]="conditions[subtype]" slot="end">
             <ion-radio value="New">New</ion-radio>
             <ion-radio value="Gently used">Gently used</ion-radio>
             <ion-radio value="Worn out">Worn out</ion-radio>
