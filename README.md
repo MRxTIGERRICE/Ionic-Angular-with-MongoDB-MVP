@@ -23,6 +23,7 @@ To install and run this project, follow these steps:
    Ensure you have Node.js and npm installed, then run:
    ```bash
    npm install
+   npm install -g @ionic/cli
    ```
 
 3. **Run the application:**
